@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+  }
+}
+
+@layer components {
+  /* Signature element: a "trade ticket" card with a perforated edge,
+     evoking a barter receipt / exchange stub. Used for skill listings. */
+  .ticket {
+    position: relative;
+    background: #fff;
+    border: 1px solid theme('colors.line');
+    border-radius: theme('borderRadius.ticket');
+  }
+  .ticket::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -7px;
+    width: 14px;
+    height: 14px;
+    background: theme('colors.paper');
+    border: 1px solid theme('colors.line');
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+  .ticket::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -7px;
+    width: 14px;
+    height: 14px;
+    background: theme('colors.paper');
+    border: 1px solid theme('colors.line');
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+
+  .btn-primary {
+    @apply bg-clay text-white font-display font-semibold px-5 py-2.5 rounded-ticket
+           hover:bg-[#C9522A] transition-colors duration-150 focus:outline-none
+           focus-visible:ring-2 focus-visible:ring-clay focus-visible:ring-offset-2;
+  }
+  .btn-secondary {
+    @apply bg-transparent border border-ink/20 text-ink font-display font-semibold
+           px-5 py-2.5 rounded-ticket hover:border-ink/50 transition-colors duration-150
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-ink/30 focus-visible:ring-offset-2;
+  }
+  .input-field {
+    @apply w-full border border-line rounded-ticket px-3.5 py-2.5 bg-white text-ink
+           placeholder:text-mute focus:outline-none focus:border-moss focus:ring-1 focus:ring-moss
+           transition-colors duration-150;
+  }
+  .credit-stamp {
+    @apply inline-flex items-center gap-1 font-mono text-sm font-semibold text-moss
+           bg-moss/10 px-2.5 py-1 rounded-full border border-moss/20;
+  }
+}
