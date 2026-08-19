@@ -1,4 +1,4 @@
-# Barter — Skill Exchange Platform
+# Barter - Skill Exchange Platform
 
 A production-ready MERN portfolio project. Users list skills they can teach,
 book sessions with each other, and pay either with **time-credits** (1 hour
